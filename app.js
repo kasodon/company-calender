@@ -4,8 +4,8 @@ const router = express.Router();
 const app = express();
 const connectDB = require('./db/connect');
 require('dotenv').config();
-const public = require('./public.json');
-const private = require('./private.json');
+const data = require('./company.json');
+
 
 
 // middleware
@@ -18,13 +18,68 @@ app.use(bodyParser.json());
 
 router.post('/company', (req, res) => {
    // res.json(private)
-   if (req.body.type === "public") {
-      return res.json(public);
+   if (req.body.company_type === "public") {
+      // console.log(`${date}`);
+      const stat = () => {
+         const date = new Date(req.body.date_incorporated);
+         return date.setDate(date.getDate() + data[0].statutory_meeting.days);
+       };
+      //  console.log(`${stat()}`);
+      const agm = () => {
+         const date = new Date(req.body.date_incorporated);
+         return date.setDate(date.getDate() + data[0].annual_general_meeting.days);
+       };
+      //  console.log(`${agm()}`);
+      const bod = () => {
+         const date = new Date(req.body.date_incorporated);
+         return date.setDate(date.getDate() + data[0].board_of_directors.days);
+       };
+      //  console.log(`${bod()}`);
+      const returns = () => {
+         const date = new Date(req.body.date_incorporated);
+         return date.setDate(date.getDate() + data[0].annual_returns.days);
+       };
+      //  console.log(`${returns()}`);
+      return res.json(
+         {
+         statutory_meeting: stat(),
+         annual_general_meeting: agm(),
+         board_of_directors: bod(),
+         annual_returns: returns()
+      }
+      );
    }
-   if (req.body.type === "private") {
-      return res.json(private);
+   if (req.body.company_type === "private") {
+      // console.log(`${date}`);
+      const stat = () => {
+         const date = new Date(req.body.date_incorporated);
+         return date.setDate(date.getDate() + data[1].statutory_meeting.days);
+       };
+      //  console.log(`${stat()}`);
+      const agm = () => {
+         const date = new Date(req.body.date_incorporated);
+         return date.setDate(date.getDate() + data[1].annual_general_meeting.days);
+       };
+      //  console.log(`${agm()}`);
+      const bod = () => {
+         const date = new Date(req.body.date_incorporated);
+         return date.setDate(date.getDate() + data[1].board_of_directors.days);
+       };
+      //  console.log(`${bod()}`);
+      const returns = () => {
+         const date = new Date(req.body.date_incorporated);
+         return date.setDate(date.getDate() + data[1].annual_returns.days);
+       };
+      //  console.log(`${returns()}`);
+      return res.json(
+         {
+            statutory_meeting: stat(),
+            annual_general_meeting: agm(),
+            board_of_directors: bod(),
+            annual_returns: returns()
+         }
+      );
    }
-   console.log(req.body.date)
    });
 
 // routes

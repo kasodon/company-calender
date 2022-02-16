@@ -1,0 +1,45 @@
+[
+    {
+        "type": "public",
+        "statutory_meeting": {
+            "days": 180,
+            "notice": 21,
+            "rule": "Section 235 of CAMA 2020"
+        },
+        "annual_general_meeting": {
+            "days": 540,
+            "notice": 21,
+            "rule": "Section 237 of CAMA 2020"
+        },
+        "board_of_directors": {
+            "days": 180,
+            "rule": "Section 239 of CAMA 2020"
+        },
+        "annual_returns": {
+            "days": 582,
+            "rule": "Section 421 of CAMA 2020"
+        }
+    },
+    {
+        "type": "private",
+        "statutory_meeting": {
+            "days": 0,
+            "notice": 0,
+            "rule": ""
+        },
+        "annual_general_meeting": {
+            "days": 540,
+            "notice": 21,
+            "rule": "Section 237 of CAMA 2020"
+        },
+        "board_of_directors": {
+            "days": 180,
+            "rule": "Section 239 of CAMA 2020"
+        },
+        "annual_returns": {
+            "days": 582,
+            "rule": "Section 421 of CAMA 2020"
+        }
+    }
+  ]
+  
