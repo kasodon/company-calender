@@ -91,7 +91,7 @@ router.post('/company', (req, res) => {
 // routes
 app.use("/", router);
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 80;
 
 const start = async () => {
     try {
