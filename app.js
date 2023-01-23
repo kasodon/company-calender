@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const bodyParser = require("body-parser");
 const router = express.Router();
 const app = express();
@@ -7,6 +8,20 @@ require('dotenv').config();
 const data = require('./company.json');
 
 
+const corsOpts = {
+    origin: '*',
+
+    methods: [
+        'GET',
+        'POST',
+    ],
+
+    allowedHeaders: [
+        'Content-Type',
+    ],
+};
+
+app.use(cors(corsOpts));
 
 // middleware
 app.use(express.static('./public'))
